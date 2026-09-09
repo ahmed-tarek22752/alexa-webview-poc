@@ -1,15 +1,26 @@
 <!doctype html>
 <html>
 <body>
-<h2>Cross-scheme PoC</h2>
+<h1>Cross-Scheme PoC</h1>
 
-<button onclick="location.href='mailto:test@example.invalid'">
-  Test mailto
-</button>
+<p id="status">Loaded</p>
 
-<button onclick="location.href='sms:0000000000'">
-  Test sms
-</button>
+<button onclick="testMailto()">Test mailto</button>
+<button onclick="testSms()">Test sms</button>
+
+<script>
+function testMailto() {
+    document.getElementById("status").textContent =
+        "Attempting mailto navigation...";
+    location.href = "mailto:test@example.com";
+}
+
+function testSms() {
+    document.getElementById("status").textContent =
+        "Attempting sms navigation...";
+    location.href = "sms:1234567890";
+}
+</script>
 
 </body>
 </html>
